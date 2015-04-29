@@ -10,84 +10,14 @@
 
 <ui:composition template="/template/common/templateLayout.xhtml">
 
-
 	<ui:define name="content">>
 
-	<h:form>
+		<h:dataTable value="#{estatistica.lista}" var="o">
 
-		<div class="calculator">
-			<div class="display">
-				<div class="displaytop">
-					<h:outputText value="#{calculator.ecra}" />
-				</div>
-				<div class="displaybottom">
-					<h:outputText value="#{calculator.result}" />
-				</div>
+			<h:column>#{o.operator}</h:column>
 
-			</div>
-			<div class="history">
-				<h1>Historic</h1>
-				<h:outputText value="#{calculator.memory}">
-				</h:outputText>
-			</div>
-
-			<div class="keys">
-				<p></p>
-				<h:commandButton id="plus" value="+" class="buttonopr"
-					actionListener="#{calculator.keyOperator}" />
-				<h:commandButton id="divide" value="/" class="buttonopr"
-					actionListener="#{calculator.keyOperator}" />
-				<h:commandButton id="times" value="*" class="buttonopr"
-					actionListener="#{calculator.keyOperator}" />
-				<h:commandButton id="minus" value="-" class="buttonopr"
-					actionListener="#{calculator.keyOperator}" />
-				<p></p>
-				<h:commandButton id="num1" value="1" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="num2" value="2" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="num3" value="3" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="clearEntry" value="CE" class="buttonfunc"
-					actionListener="#{calculator.keyClearEntry}" />
-				<p></p>
-				<h:commandButton id="num4" value="4" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="num5" value="5" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="num6" value="6" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="clear" value="C" class="buttonfunc"
-					actionListener="#{calculator.keyClear}" />
-				<p></p>
-				<h:commandButton id="num7" value="7" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="num8" value="8" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="num9" value="9" class="button"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="memo" value="M+" class="buttonfunc"
-					actionListener="#{calculator.keyMemo}" />
-				<p></p>
-				<h:commandButton id="dot" value="." class="buttonopr"
-					actionListener="#{calculator.keyDot}" />
-				<h:commandButton id="num0" value="0" class="button"
-					actionListener="#{calculator.keyZero}" />
-				<h:commandButton id="memoCl" value="MC" class="buttonfunc"
-					actionListener="#{calculator.keyMemoCl}" />
-				<h:commandButton id="memoMr" value="MR" class="buttonfunc"
-					actionListener="#{calculator.keyMemoMr}" />
-				<p></p>
-				<h:commandButton id="equals" value="=" class="buttonequals"
-					actionListener="#{calculator.keyEquals}" />
-
-			</div>
-
-
-		</div>
-		
-	</h:form>
-</ui:define>
+		</h:dataTable>
+	</ui:define>
 </ui:composition>
 </html>
 

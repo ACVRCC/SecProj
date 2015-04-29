@@ -45,7 +45,7 @@
 
 
 #corpo {
-background-color: black;
+background-color: #ffffff;
 	width: 100%;
 }
 
@@ -53,7 +53,7 @@ background-color: black;
 #content {
 	border-style: none;
 	float: letf;
-	background:black;
+	background:#ffffff;
 	width: 98,5%;
 	height: 50%;
 	padding-left: 2%;
@@ -300,5 +300,21 @@ background-color: black;
 		startColorstr=#e40a0a, endColorstr=#9f0202);
 }
 
-
+.history {
+	color: white;
+	position: relative;
+	width: 30%;
+	left:200px;
+	text-align: right;
+	background-color: #c0c0c0;
+	min-height: 300px;
+	max-height: 300px;
+	vertical-align: top;
+	right: 20px;
+	border-radius: 10px;
+	padding-right:40px;
+	padding-top:20px;
+	display: inline-block;
+	margin-top: 20px;
+}
 

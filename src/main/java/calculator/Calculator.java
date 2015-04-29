@@ -11,7 +11,7 @@ package calculator;
 
 import java.io.Serializable;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,7 +21,7 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 
 @Named
-@SessionScoped
+@RequestScoped
 public class Calculator implements Serializable {
 
 	/**
@@ -79,7 +79,7 @@ public class Calculator implements Serializable {
 
 		if(event.getComponent().getId().equals("equals")){
 			
-			historic.addEcras(getEcra());
+			historic.addExp(getEcra());
 
 			try {
 				setResult(expressionBuilder(getEcra()));
