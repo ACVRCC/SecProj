@@ -22,6 +22,11 @@
 					<h:outputText value="#{calculator.result}" />
 				</div>
 			</div>
+			<div class="history">
+				<h1>Historic</h1>
+				<h:outputText value="#{calculator.memory}">
+				</h:outputText>
+			</div>
 			<div class="keys">
 				<p></p>
 				<h:commandButton id="plus" value="+" class="buttonopr"
