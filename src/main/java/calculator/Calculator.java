@@ -34,6 +34,8 @@ public class Calculator implements Serializable {
 	private double memory;
 	@Inject
 	Validator validator;
+	@Inject
+	Historic historic;
 
 
 	public Calculator() {
@@ -76,6 +78,8 @@ public class Calculator implements Serializable {
 	public void keyEquals(ActionEvent event){
 
 		if(event.getComponent().getId().equals("equals")){
+			
+			historic.addEcras(getEcra());
 
 			try {
 				setResult(expressionBuilder(getEcra()));
@@ -102,7 +106,7 @@ public class Calculator implements Serializable {
 
 
 		if(event.getComponent().getId().equals("clearEntry"))	
-			setResult(0);
+			setEcra("");
 
 	}
 
