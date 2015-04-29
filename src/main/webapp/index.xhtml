@@ -11,9 +11,9 @@
 
 
 	<ui:define name="content">
-	<h:form>
+		<h:form>
 
-		<div class="calculator">
+
 			<div class="display">
 				<div class="displaytop">
 					<h:outputText value="#{calculator.ecra}" />
@@ -21,14 +21,7 @@
 				<div class="displaybottom">
 					<h:outputText value="#{calculator.result}" />
 				</div>
-
 			</div>
-			<div class="history">
-				<h1>Historic</h1>
-				<h:outputText value="#{calculator.memory}">
-				</h:outputText>
-			</div>
-
 			<div class="keys">
 				<p></p>
 				<h:commandButton id="plus" value="+" class="buttonopr"
@@ -82,10 +75,9 @@
 			</div>
 
 
-		</div>
-		
-	</h:form>
-</ui:define>
+
+		</h:form>
+	</ui:define>
 </ui:composition>
 </html>
 
