@@ -134,12 +134,15 @@ public class Validator implements Serializable {
 
 		if (expression.equals(""))
 			expression = Double.toString(result) + add;
-		else
-			expression += add;
-		/*
-		 * else if (isLastCharNumeric(expression)) expression += add; else
-		 * expression = expression.substring(0, expression.length() - 1) + add;
-		 */
+		
+		 else if (isLastCharNumeric(expression)) 
+			 expression += add;
+		 
+		 else 
+		  expression = expression.substring(0, expression.length() - 1) + add;
+			
+		
+		
 
 		return expression;
 	}
