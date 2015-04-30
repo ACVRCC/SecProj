@@ -27,8 +27,11 @@
 			</div>
 			<div class="history">
 
-				<h:outputText value="#{historic.results}">
-				</h:outputText>
+				<ui:repeat value="#{historic.results}" var="o">
+
+					<p>#{o}</p>
+
+				</ui:repeat>
 			</div>
 
 			<div class="keys">
