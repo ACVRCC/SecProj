@@ -10,8 +10,7 @@
 package calculator;
 
 import java.io.Serializable;
-
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,7 +20,7 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 
 @Named
-@RequestScoped
+@SessionScoped
 public class Calculator implements Serializable {
 
 	/**
@@ -36,12 +35,15 @@ public class Calculator implements Serializable {
 	Validator validator;
 	@Inject
 	Historic historic;
+	@Inject
+	Statistic statistic;
 
 
 	public Calculator() {
 		ecra="";
 		result=0;
 		memory=0;
+	
 
 	}
 
@@ -58,11 +60,13 @@ public class Calculator implements Serializable {
 	public void key(ActionEvent event){
 
 		ecra = validator.validaNumber(getEcra(), event.getComponent().getId(), getResult());
+		
 		}
 
 	public void keyOperator(ActionEvent event){
 
 		ecra = validator.validaOperator(getEcra(), event.getComponent().getId(), getResult());
+		statistic.countOperator(event.getComponent().getId());
 	}
 
 
@@ -79,8 +83,8 @@ public class Calculator implements Serializable {
 
 		if(event.getComponent().getId().equals("equals")){
 			
-			historic.addExp(getEcra());
-
+			historic.addResults(getEcra());
+			
 			try {
 				setResult(expressionBuilder(getEcra()));
 				setEcra("");
@@ -160,10 +164,6 @@ public class Calculator implements Serializable {
 	public void setMemory(double memory) {
 		this.memory = memory;
 	}
-
-
-
-
 
 
 

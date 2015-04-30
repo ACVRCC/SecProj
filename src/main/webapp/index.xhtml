@@ -13,7 +13,6 @@
 	<ui:define name="content">
 		<h:form>
 
-
 			<div class="display">
 				<div class="displaytop">
 					<h:outputText value="#{calculator.ecra}" />
@@ -23,9 +22,13 @@
 				</div>
 			</div>
 			<div class="history">
-				<h1>Historic</h1>
-				<h:outputText value="#{calculator.memory}">
-				</h:outputText>
+			
+ 			<ui:repeat value="#{historic.results}" var="o">
+
+					<p>#{o}</p>
+
+				</ui:repeat>
+
 			</div>
 			<div class="keys">
 				<p></p>
@@ -79,16 +82,8 @@
 					actionListener="#{calculator.keyEquals}" />
 
 			</div>
-
-			<div class="history">
-				<h4>Historic</h4>
-
-				<h:outputText value="#{historic.exp}" />
-
-			</div>
 			
 
- 
 		</h:form>
 	</ui:define>
 </ui:composition>

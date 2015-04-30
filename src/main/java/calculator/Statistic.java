@@ -1,50 +1,46 @@
 package calculator;
 
 import java.io.Serializable;
-
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 
-@ManagedBean(name="estatistica")
+@Named
 @ApplicationScoped
 public class Statistic implements Serializable{
 
+
 	private static final long serialVersionUID = 1L;
+	private int countPlus=0;
+	
 
-	private Estatistica[] lista = new Estatistica[] {
+	
 
-			new Estatistica("+"),
-			new Estatistica("-"),
-			new Estatistica("*"),
-			new Estatistica("/"),
-			
-	};
 
-	public Estatistica[] getLista() {
+	public void countOperator(String operator){
+	
+		switch (operator){
 
-		return lista;
-
-	}
-
-	public class Estatistica{
+		case "plus": countPlus++;
+				
+		break;
 		
-		String operator;
 
-		public Estatistica( String operator) {
-
-			this.operator = operator;
 		}
-
-
-
-		public String getOperator() {
-			return operator;
-		}
-
-		public void setOperator(String operator) {
-			this.operator = operator;
-		}
-
-
+	
 	}
+	
+	
+
+	public int getCountPlus() {
+		return this.countPlus;
+	}
+	
+
+	public void setCountPlus(int countPlus) {
+		this.countPlus = countPlus;
+	}
+	
+
+	
+	
 }

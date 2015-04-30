@@ -52,7 +52,7 @@
 #content {
 	border-style: none;
 	float: left;
-	background: black;
+	background: #400040;
 	width: 98, 5%;
 	height: 50%;
 	padding-left: 2%;
@@ -61,6 +61,7 @@
 	display: inline-block;
 	font-family: Tahoma, Geneva, sans-serif;
 	display: inline-block;
+	color:white;
 }
 
 #footer {

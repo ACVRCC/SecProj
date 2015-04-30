@@ -10,13 +10,11 @@
 
 <ui:composition template="/template/common/templateLayout.xhtml">
 
-	<ui:define name="content">>
+	<ui:define name="content">
 
-		<h:dataTable value="#{estatistica.lista}" var="o">
+		<h:outputText value="#{statistic.countPlus}"/>
 
-			<h:column>#{o.operator}</h:column>
-
-		</h:dataTable>
+	
 	</ui:define>
 </ui:composition>
 </html>

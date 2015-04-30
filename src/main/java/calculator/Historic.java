@@ -1,11 +1,12 @@
 package calculator;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-
+@Named
 @SessionScoped
 public class Historic implements Serializable {
 
@@ -17,42 +18,25 @@ public class Historic implements Serializable {
 	
 
 	private ArrayList<String> results;
-	private String exp;
 
 	public Historic() {
 		results = new ArrayList<String>();
-		setExp("0");
+
 	}
 
-
-
+	public void addResults(String expression){
+		
+		results.add(expression);
 	
-	 public void addEcras(String expression){
-		 
-		 results.add(expression);
-	 }
-	 
-	 public void addExp(String expression){
-		 
-		 setExp(expression);
-	 }
-
-
-
-
-	public String getExp() {
-		return exp;
 	}
 
-
-
-
-	public void setExp(String exp) {
-		this.exp = exp;
+	public ArrayList<String> getResults() {
+		return results;
 	}
-	 
-	 
-	 
+
+	public void setResults(ArrayList<String> results) {
+		this.results = results;
+	}
 
 	
 

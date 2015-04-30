@@ -13,7 +13,7 @@ public class Validator implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 
-	public String validaZero(String expression, String id, double result) {
+	public String validaZero(String expression, String id, Double result) {
 		
 		expression+="0";
 		
