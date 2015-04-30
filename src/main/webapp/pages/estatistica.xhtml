@@ -11,8 +11,17 @@
 <ui:composition template="/template/common/templateLayout.xhtml">
 
 	<ui:define name="content">
-
+		<h:outputText value="Operação soma (+) ......................."/>
 		<h:outputText value="#{statistic.countPlus}"/>
+		<br />
+		<h:outputText value="Operação subtração (-) .................."/>
+		<h:outputText value="#{statistic.countMinus}"/>
+			<br />
+		<h:outputText value="Operação multiplicação (x) .............."/>
+		<h:outputText value="#{statistic.countTimes}"/>
+			<br />
+		<h:outputText value="Operação divisão (/) ...................."/>
+		<h:outputText value="#{statistic.countDivide}"/>
 
 	
 	</ui:define>
