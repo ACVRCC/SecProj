@@ -11,19 +11,105 @@
 <ui:composition template="/template/common/templateLayout.xhtml">
 
 	<ui:define name="content">
-		<h:outputText value="Operação soma (+) ......................."/>
-		<h:outputText value="#{statistic.countPlus}"/>
-		<br />
-		<h:outputText value="Operação subtração (-) .................."/>
-		<h:outputText value="#{statistic.countMinus}"/>
-			<br />
-		<h:outputText value="Operação multiplicação (x) .............."/>
-		<h:outputText value="#{statistic.countTimes}"/>
-			<br />
-		<h:outputText value="Operação divisão (/) ...................."/>
-		<h:outputText value="#{statistic.countDivide}"/>
+		<div class="statTable">
+			<table border="1" cellpadding="1" cellspacing="2" border-radius="10px"
+				summary="Operator Statistics">
+				<caption>Operator Statistics</caption>
+				<tr>
+					<th>Operation</th>
+					<th>Number of Hits</th>
 
-	
+				</tr>
+				<tr>
+					<td><h:outputText value="Operação soma (+)" /></td>
+					<td><h:outputText value="#{statistic.countPlus}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Operação subtração (-) " /></td>
+					<td><h:outputText value="#{statistic.countMinus}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Operação multiplicação (x)" /></td>
+					<td><h:outputText value="#{statistic.countTimes}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Operação divisão (/)" /></td>
+					<td><h:outputText value="#{statistic.countDivide}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Seno" /></td>
+					<td><h:outputText value="#{statistic.countSin}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Co-Seno" /></td>
+					<td><h:outputText value="#{statistic.countCos}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Tangente" /></td>
+					<td><h:outputText value="#{statistic.countTan}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Inverso Seno" /></td>
+					<td><h:outputText value="#{statistic.countASin}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Inverso Co-Seno" /></td>
+					<td><h:outputText value="#{statistic.countACos}" /></td>
+
+				</tr>
+				<tr>
+					<td><h:outputText value="Inverso Tangente" /></td>
+					<td><h:outputText value="#{statistic.countATan}" /></td>
+
+				</tr>
+
+				<tr>
+					<td><h:outputText value="Raiz Quadrada" /></td>
+					<td><h:outputText value="#{statistic.countSqrt}" /></td>
+				</tr>
+
+				<tr>
+					<td><h:outputText value="Raiz Cubica" /></td>
+					<td><h:outputText value="#{statistic.countCbrt}" /></td>
+				</tr>
+
+				<tr>
+					<td><h:outputText value="Quadrado" /></td>
+					<td><h:outputText value="#{statistic.countSqr}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputText value="Potência" /></td>
+					<td><h:outputText value="#{statistic.countPow}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputText value="Valor Absoluto" /></td>
+					<td><h:outputText value="#{statistic.countAbs}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputText value="Exponencial" /></td>
+					<td><h:outputText value="#{statistic.countExp}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputText value="Logaritmo" /></td>
+					<td><h:outputText value="#{statistic.countLog}" /></td>
+				</tr>
+
+			</table>
+
+
+
+
+
+		</div>
+
 	</ui:define>
 </ui:composition>
 </html>
