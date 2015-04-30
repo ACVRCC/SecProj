@@ -68,7 +68,7 @@
 					actionListener="#{calculator.key}" />
 				<h:commandButton id="clearEntry" value="CE" class="buttonfunc"
 					actionListener="#{calculator.keyClearEntry}" />
-				
+
 				<p></p>
 				<h:commandButton id="dot" value="." class="buttonopr"
 					actionListener="#{calculator.keyDot}" />
@@ -83,7 +83,43 @@
 					actionListener="#{calculator.keyEquals}" />
 
 			</div>
-
+			<div class="keysscience">
+			<p></p>
+				<h:commandButton id="sin" value="sin" class="buttontrig" />
+				<!-- 	actionListener="" -->
+				<h:commandButton id="cos" value="cos" class="buttontrig" />
+				<!-- 	actionListener="" -->
+				<h:commandButton id="tan" value="tan" class="buttontrig" />
+				<!-- 	actionListener="" -->
+				<p></p>
+				<h:commandButton id="invsin" value="sin-1" class="buttontrig" />
+				<!-- 	actionListener="" -->
+				<h:commandButton id="invcos" value="cos-1" class="buttontrig" />
+				<!-- actionListener="" -->
+				<h:commandButton id="invtan" value="tan-1" class="buttontrig" />
+				<!-- actionListener="" -->
+				<p></p>
+				<h:commandButton id="sqrt" value="&radic;" class="buttonpow" />
+				<!-- 	actionListener="" -->
+				<h:commandButton id="e" value="e" class="buttonpow" />
+				<!-- 	actionListener="" -->
+				<h:commandButton id="pi" value="&#960;" class="buttonpow" 
+				 	actionListener="#{calculator.key}" />
+				<p></p>
+				<h:commandButton id="fact" value="n!" class="buttonpow" />
+				<!-- 	actionListener="" -->
+				<h:commandButton id="square" value="x2 " class="buttonpow" />
+				<!-- actionListener="" -->
+				<h:commandButton id="pow" value="x^y" class="buttonpow" />
+				<!-- actionListener="" -->
+				<p></p>
+				<h:commandButton id="inverse" value="1/x" class="buttonpow" />
+				<!-- 	actionListener="" -->
+				<h:commandButton id="exp" value="e^x" class="buttonpow" />
+				<!-- actionListener="" -->
+				<h:commandButton id="log" value="ln" class="buttonpow" />
+				<!-- actionListener="" -->
+			</div>
 
 
 		</h:form>
