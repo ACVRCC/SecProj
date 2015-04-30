@@ -106,13 +106,13 @@ public class Validator implements Serializable {
 		case "tan":
 			add = "tan";
 			break;
-		case "invsin":
+		case "invSin":
 			add = "asin";
 			break;
-		case "invcos":
+		case "invCos":
 			add = "acos";
 			break;
-		case "invtan":
+		case "invTan":
 			add = "atan";
 			break;
 		case "square":
@@ -127,8 +127,11 @@ public class Validator implements Serializable {
 		case "log":
 			add = "log";
 			break;
-		case "cubic_root":
+		case "cubicRoot":
 			add = "cbrt";
+			break;
+		case "pow":
+			add = "^";
 			break;
 		}
 
