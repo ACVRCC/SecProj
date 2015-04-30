@@ -58,6 +58,12 @@ public class Validator implements Serializable {
 		case "e":
 			add = "e";
 			break;
+		case "openParent":
+			add = "(";
+			break;
+		case "closeParent":
+			add = ")";
+			break;	
 		}
 
 		if (expression.equals("0"))
@@ -87,12 +93,7 @@ public class Validator implements Serializable {
 		case "divide":
 			add = "/";
 			break;
-		case "openParent":
-			add = "(";
-			break;
-		case "closeParent":
-			add = ")";
-			break;
+
 		case "sqrt":
 			add = "sqrt";
 			break;
@@ -142,6 +143,7 @@ public class Validator implements Serializable {
 
 		return expression;
 	}
+
 
 	public String validaDot(String expression, String dot, Double result) {
 
