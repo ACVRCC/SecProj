@@ -73,7 +73,10 @@ public class Calculator implements Serializable {
 	public double expressionBuilder(String expression ) throws Exception {
 
 		Expression e = new ExpressionBuilder(expression)
-		.build();
+		.variables("pi","e")
+		.build()
+		.setVariable("e",Math.E)
+		.setVariable("pi",Math.PI);
 		result = e.evaluate();
 
 		return result;
