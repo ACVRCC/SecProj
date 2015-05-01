@@ -6,6 +6,7 @@
  * compliance with  the terms of the License at:
  * http://java.net/projects/javaeetutorial/pages/BerkeleyLicense
  */
+/*Trabalho executado por Alberto Centeno e Sérgio Moutinho*/
 
 package calculator;
 

@@ -3,7 +3,7 @@ package calculator;
 import javax.enterprise.context.SessionScoped;
 
 import java.io.Serializable;
-
+/*Trabalho executado por Alberto Centeno e Sérgio Moutinho*/
 @SessionScoped
 public class Validator implements Serializable {
 
