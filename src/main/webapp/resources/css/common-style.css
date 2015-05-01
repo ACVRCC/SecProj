@@ -85,6 +85,8 @@
 	background-color: black;
 	color: White;
 	width: 100%;
+	overflow: hidden;
+	max-width:600px;
 }
 
 .displaytop {
@@ -357,7 +359,7 @@
 	margin-left: 17px;
 	cursor: pointer;
 	border-top: 2px solid transparent;
-	border: 1px solid #a8c1d5;
+	border: 1px solid #495267;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -369,30 +371,30 @@
 	text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
 	font-weight: bold;
 	color: #FFFFFF;
-	background-color: #CEDCE7;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#CEDCE7),
-		to(#596a72));
-	background-image: -webkit-linear-gradient(top, #CEDCE7, #596a72);
-	background-image: -moz-linear-gradient(top, #CEDCE7, #596a72);
-	background-image: -ms-linear-gradient(top, #CEDCE7, #596a72);
-	background-image: -o-linear-gradient(top, #CEDCE7, #596a72);
-	background-image: linear-gradient(to bottom, #CEDCE7, #596a72);
+	background-color: #606c88;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#606c88),
+		to(#3f4c6b));
+	background-image: -webkit-linear-gradient(top, #606c88, #3f4c6b);
+	background-image: -moz-linear-gradient(top, #606c88, #3f4c6b);
+	background-image: -ms-linear-gradient(top, #606c88, #3f4c6b);
+	background-image: -o-linear-gradient(top, #606c88, #3f4c6b);
+	background-image: linear-gradient(to bottom, #606c88, #3f4c6b);
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,
-		startColorstr=#CEDCE7, endColorstr=#596a72);
+		startColorstr=#606c88, endColorstr=#3f4c6b);
 }
 
 .buttontrig:hover {
-	border: 1px solid #8aabc5;
-	background-color: #acc4d6;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#acc4d6),
-		to(#434f55));
-	background-image: -webkit-linear-gradient(top, #acc4d6, #434f55);
-	background-image: -moz-linear-gradient(top, #acc4d6, #434f55);
-	background-image: -ms-linear-gradient(top, #acc4d6, #434f55);
-	background-image: -o-linear-gradient(top, #acc4d6, #434f55);
-	background-image: linear-gradient(to bottom, #acc4d6, #434f55);
+	border: 1px solid #363d4c;
+	background-color: #4b546a;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#4b546a),
+		to(#2c354b));
+	background-image: -webkit-linear-gradient(top, #4b546a, #2c354b);
+	background-image: -moz-linear-gradient(top, #4b546a, #2c354b);
+	background-image: -ms-linear-gradient(top, #4b546a, #2c354b);
+	background-image: -o-linear-gradient(top, #4b546a, #2c354b);
+	background-image: linear-gradient(to bottom, #4b546a, #2c354b);
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,
-		startColorstr=#acc4d6, endColorstr=#434f55);
+		startColorstr=#4b546a, endColorstr=#2c354b);
 }
 
 .buttonpow {
@@ -445,7 +447,7 @@
 	color: white;
 	position: relative;
 	text-align: right;
-	background-color: navy;
+	background-color: black;
 	min-height: 300px;
 	max-height: 300px;
 	left: 10%;
