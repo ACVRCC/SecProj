@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/*Trabalho executado por Alberto Centeno e Sérgio Moutinho*/
 @Named
 @SessionScoped
 public class Historic implements Serializable {
