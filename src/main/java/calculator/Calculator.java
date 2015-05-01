@@ -144,6 +144,11 @@ public class Calculator implements Serializable {
 
 	}
 
+	public void keyDelete(ActionEvent event){
+
+		ecra = validator.validaDelete(getEcra(), event.getComponent().getId(), getResult());
+
+	}
 	public String getEcra() {
 		return ecra;
 	}

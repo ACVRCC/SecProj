@@ -82,10 +82,9 @@
 				<h:commandButton id="memoMr" value="MR" class="buttonfunc"
 					actionListener="#{calculator.keyMemoMr}" />
 				<p></p>
-				<h:commandButton id="openParent" value="(" class="buttonopr"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="closeParent" value=")" class="buttonopr"
-					actionListener="#{calculator.key}" />
+				
+					<h:commandButton id="DEL" value="DEL" class="buttonequals"
+					actionListener="#{calculator.keyDelete}" />
 				<h:commandButton id="equals" value="=" class="buttonequals"
 					actionListener="#{calculator.keyEquals}" />
 
@@ -126,6 +125,11 @@
 				actionListener="#{calculator.keyOperator}" />
 				<h:commandButton id="log" value="log" class="buttonpow" 
 				actionListener="#{calculator.keyOperator}" />
+				<p></p>
+				<h:commandButton id="openParent" value="(" class="buttonopr"
+					actionListener="#{calculator.key}" />
+				<h:commandButton id="closeParent" value=")" class="buttonopr"
+					actionListener="#{calculator.key}" />
 			</div>
 
 

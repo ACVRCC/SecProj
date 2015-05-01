@@ -161,6 +161,17 @@ public class Validator implements Serializable {
 		return expression;
 
 	}
+	
+	public String validaDelete(String expression, String str, Double result) {
+
+		if (str.equals("DEL")) {
+			if (expression.length()>0)
+				expression = expression.substring(0, expression.length() - 1);
+		}
+
+		return expression;
+
+	}
 
 	public String lastChar(String str) {
 

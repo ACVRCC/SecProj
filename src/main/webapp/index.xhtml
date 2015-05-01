@@ -78,9 +78,11 @@
 				<h:commandButton id="memoMr" value="MR" class="buttonfunc"
 					actionListener="#{calculator.keyMemoMr}" />
 				<p></p>
-				<h:commandButton id="equals" value="=" class="buttonequalsbasic"
+				<h:commandButton id="DEL" value="DEL" class="buttonequals"
+					actionListener="#{calculator.keyDelete}" />
+					<h:commandButton id="equals" value="=" class="buttonequals"
 					actionListener="#{calculator.keyEquals}" />
-
+				
 			</div>
 			
 
