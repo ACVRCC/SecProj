@@ -3,6 +3,7 @@ package calculator;
 import javax.enterprise.context.SessionScoped;
 
 import java.io.Serializable;
+
 /*Trabalho executado por Alberto Centeno e Sérgio Moutinho*/
 @SessionScoped
 public class Validator implements Serializable {
@@ -11,6 +12,7 @@ public class Validator implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String unit;
 
 	public String validaZero(String expression, String id, String string) {
 
@@ -63,7 +65,28 @@ public class Validator implements Serializable {
 			break;
 		case "closeParent":
 			add = ")";
-			break;	
+			break;
+		case "cosd":
+			add = "cosd";
+			break;
+		case "sind":
+			add ="sind";
+			break;
+		case "tand":
+			add="atand";
+			break;
+		case "acosd":
+			add = "acosd";
+			break;
+		case "asind":
+			add ="asind";
+			break;
+		case "atand":
+			add="aatand";
+			break;
+		case "factorial":
+			add="!";
+			break;
 		}
 
 		if (expression.equals("0"))
@@ -101,10 +124,10 @@ public class Validator implements Serializable {
 			add = "sin";
 			break;
 		case "cos":
-			add = "cos";
+			add="cos";
 			break;
 		case "tan":
-			add = "tan";
+			add= "tan";
 			break;
 		case "invSin":
 			add = "asin";
@@ -133,23 +156,23 @@ public class Validator implements Serializable {
 		case "pow":
 			add = "^";
 			break;
+	
 		}
 
 		if (expression.equals(""))
 			expression = string + add;
+
+		else
+			if (isLastCharNumeric(expression)) 
+			expression += add;
+
 		
-		 else if (isLastCharNumeric(expression)) 
-			 expression += add;
+		  else expression = expression.substring(0, expression.length() - 1) +
+		  add;
 		 
-		 else 
-		  expression = expression.substring(0, expression.length() - 1) + add;
-			
-		
-		
 
 		return expression;
 	}
-
 
 	public String validaDot(String expression, String dot, String string) {
 
@@ -161,11 +184,11 @@ public class Validator implements Serializable {
 		return expression;
 
 	}
-	
+
 	public String validaDelete(String expression, String str, String string) {
 
 		if (str.equals("DEL")) {
-			if (expression.length()>0)
+			if (expression.length() > 0)
 				expression = expression.substring(0, expression.length() - 1);
 		}
 
@@ -193,5 +216,4 @@ public class Validator implements Serializable {
 		}
 		return true;
 	}
-
 }

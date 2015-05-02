@@ -19,7 +19,8 @@ import javax.inject.Named;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-
+import net.objecthunter.exp4j.function.Function;
+import net.objecthunter.exp4j.operator.Operator;
 
 @Named
 @SessionScoped
@@ -33,6 +34,8 @@ public class Calculator implements Serializable {
 	private String ecra;
 	private String result;
 	private String memory;
+	
+
 	@Inject
 	Validator validator;
 	@Inject
@@ -40,48 +43,109 @@ public class Calculator implements Serializable {
 	@Inject
 	Statistic statistic;
 
-
 	public Calculator() {
-		ecra="";
-		result="";
-		memory="";
-	
-
+		ecra = "";
+		result = "0";
+		memory = "";
 	}
 
-	public void keyZero(ActionEvent event){
+	public void keyZero(ActionEvent event) {
 
-		ecra = validator.validaZero(getEcra(), event.getComponent().getId(), getResult());
+		ecra = validator.validaZero(getEcra(), event.getComponent().getId(),
+				getResult());
 	}
 
-	public void keyDot(ActionEvent event){
+	public void keyDot(ActionEvent event) {
 
-		ecra = validator.validaDot(getEcra(), event.getComponent().getId(), getResult());
+		ecra = validator.validaDot(getEcra(), event.getComponent().getId(),
+				getResult());
 	}
 
-	public void key(ActionEvent event){
+	public void key(ActionEvent event) {
 
-		ecra = validator.validaNumber(getEcra(), event.getComponent().getId(), getResult());
-		
+		ecra = validator.validaNumber(getEcra(), event.getComponent().getId(),
+				getResult());
+
+	}
+	Function cosd = new Function("cosd", 1) {
+		@Override
+		public double apply(double... args) {
+			return Math.cos(Math.toRadians(args[0]));
 		}
+	};
+	Function sind = new Function("sind", 1) {
+		   @Override
+		   public double apply(double... args) {
+		    return Math.sin(Math.toRadians(args[0]));
+		   }
+		};
+		Function tand = new Function("tand", 1) {
+		   @Override
+		   public double apply(double... args) {
+		    return Math.tan(Math.toRadians(args[0]));
+		   }
+		};
+		Function acosd = new Function("acosd", 1) {
+			@Override
+			public double apply(double... args) {
+				return Math.acos(Math.toRadians(args[0]));
+			}
+		};
+		Function asind = new Function("asind", 1) {
+			@Override
+			public double apply(double... args) {
+				return Math.asin(Math.toRadians(args[0]));
+			}
+		};
+		Function atand = new Function("atand", 1) {
+			@Override
+			public double apply(double... args) {
+				return Math.atan(Math.toRadians(args[0]));
+			}
+		};
+	Operator factorial = new Operator("!", 1, true,
+			Operator.PRECEDENCE_POWER + 1) {
+		@Override
+		public double apply(double... args) {
+			final int arg = (int) args[0];
+			if (arg != args[0]) {
+				throw new IllegalArgumentException("Não é numero inteiro");
+			}
+			if (arg < 0) {
+				throw new IllegalArgumentException(
+						"Não pode ser inferior a zero");
+			}
+			double result = 1;
+			for (int i = 1; i <= arg; i++) {
+				result *= i;
+			}
+			return result;
+		}
+	};
 
-	public void keyOperator(ActionEvent event){
+	public void keyOperator(ActionEvent event) {
 
-		ecra = validator.validaOperator(getEcra(), event.getComponent().getId(), getResult());
+		ecra = validator.validaOperator(getEcra(),
+				event.getComponent().getId(), getResult());
 		statistic.countOperator(event.getComponent().getId());
 	}
+	
+	
+	public String expressionBuilder(String expression) throws Exception {
 
-
-	public String expressionBuilder(String expression ) throws Exception {
-
-		
 		Expression e = new ExpressionBuilder(expression)
-		.variables("pi","e")
-		.build()
-		.setVariable("e",Math.E)
-		.setVariable("pi",Math.PI);
-		result= Double.toString(e.evaluate());
-		
+				.operator(factorial)
+				.function(cosd)
+				.function(sind)
+				.function(tand)
+				.function(acosd)
+				.function(asind)
+				.function(atand)
+				.variables("pi", "e")
+				.build()
+				.setVariable("e", Math.E)
+				.setVariable("pi", Math.PI);
+				result = Double.toString(e.evaluate());
 
 		return result;
 	}
@@ -104,9 +168,10 @@ public class Calculator implements Serializable {
 		}
 	}
 
-	public void keyClear(ActionEvent event){
 
-		if(event.getComponent().getId().equals("clear")){
+	public void keyClear(ActionEvent event) {
+
+		if (event.getComponent().getId().equals("clear")) {
 
 			setResult("0");
 			setEcra("");
@@ -114,27 +179,26 @@ public class Calculator implements Serializable {
 		}
 	}
 
-	public void keyClearEntry(ActionEvent event){
+	public void keyClearEntry(ActionEvent event) {
 
-
-		if(event.getComponent().getId().equals("clearEntry"))	
+		if (event.getComponent().getId().equals("clearEntry"))
 			setEcra("");
 
 	}
 
-	public void keyMemo(ActionEvent event){
+	public void keyMemo(ActionEvent event) {
 
-		if(event.getComponent().getId().equals("memo")){
-			memory=result;
+		if (event.getComponent().getId().equals("memo")) {
+			memory = result;
 		}
 
 	}
 
-	public void keyMemoMr(ActionEvent event){
+	public void keyMemoMr(ActionEvent event) {
 
-		if(event.getComponent().getId().equals("memoMr"))
+		if (event.getComponent().getId().equals("memoMr"))
 			try {
-				ecra=ecra+"+"+memory;
+				ecra = ecra + "+" + memory;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				ecra = "erro!";
@@ -142,20 +206,22 @@ public class Calculator implements Serializable {
 
 	}
 
-	public void keyMemoCl(ActionEvent event){
+	public void keyMemoCl(ActionEvent event) {
 
-		if(event.getComponent().getId().equals("memoCl"))
-			setMemory("0");
+		if (event.getComponent().getId().equals("memoCl"))
+			setMemory("");
 
 	}
 
-	public void keyDelete(ActionEvent event){
+	public void keyDelete(ActionEvent event) {
 
-		ecra = validator.validaDelete(getEcra(), event.getComponent().getId(), getResult());
+		ecra = validator.validaDelete(getEcra(), event.getComponent().getId(),
+				getResult());
 
 	}
 	
-	public void insertEcraHistoric(ItemHistoric item, String var){
+
+public void insertEcraHistoric(ItemHistoric item, String var){
 		
 		if (var.equals("ecraHistoric")) 
 			this.ecra= item.getEcraHistoric();
@@ -171,8 +237,8 @@ public class Calculator implements Serializable {
 		
 		
 		}
-	
-	
+
+
 	public String getEcra() {
 		return ecra;
 	}
@@ -185,8 +251,8 @@ public class Calculator implements Serializable {
 		return result;
 	}
 
-	public void setResult(String result) {
-		this.result = result;
+	public void setResult(String string) {
+		this.result = string;
 	}
 
 	public String getMemory() {
@@ -197,8 +263,4 @@ public class Calculator implements Serializable {
 		this.memory = memory;
 	}
 
-
-
-
-}
-
+}	
