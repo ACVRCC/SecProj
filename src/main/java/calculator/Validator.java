@@ -137,7 +137,7 @@ public class Validator implements Serializable {
 		case "invTan":
 			add = "atan";
 			break;
-		case "square":
+		case "sqr":
 			add = "^2";
 			break;
 		case "absolute":
