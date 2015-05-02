@@ -86,16 +86,17 @@ public class Calculator implements Serializable {
 	public void keyEquals(ActionEvent event){
 
 		if(event.getComponent().getId().equals("equals")){
-			
-			historic.addResults(getEcra());
-			
+					
 			try {
 				setResult(expressionBuilder(getEcra()));
-				setEcra("");
+				historic.addItems(getEcra(), Double.toString(getResult()));
+				ecra="";
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				ecra = "erro!";
+				result=0;
 			}
+			
 
 		}
 	}
@@ -150,6 +151,24 @@ public class Calculator implements Serializable {
 		ecra = validator.validaDelete(getEcra(), event.getComponent().getId(), getResult());
 
 	}
+	
+	public String insertEcraHistoric(){
+		
+		
+	return	ecra= "24";
+	
+	
+	}
+	
+	public double insertResultHistoric(){
+		
+		
+		return	result=24;
+		
+		
+		}
+	
+	
 	public String getEcra() {
 		return ecra;
 	}

@@ -3,7 +3,9 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://java.sun.com/jsf/html">
 
 
 
@@ -22,13 +24,31 @@
 				</div>
 			</div>
 			<div class="history">
+
+				<h:dataTable id="histTable" value="#{historic.items}" var="var" 
+				styleClass="hist-table"
+    			headerClass="hist-table-header"
+    			rowClasses="hist-table-odd-row,hist-table-even-row" >
+			<f:facet name="header">
+					Histórico
+				</f:facet>
+				<p></p>
+				
+				<h:column>
+				<f:facet name="header">Expressão</f:facet>
+					<h:commandLink action="calculator.insertHistoric" value="#{var.ecraHistoric}"  />
+				</h:column>
 			
- 			<ui:repeat value="#{historic.results}" var="o">
+				<h:column>
+				<f:facet name="header">Resultado</f:facet>
+					<h:commandLink action="calculator.insertHistoric" value="#{var.resultHistoric}" />
+				</h:column>
+			
+				
+		
 
-					<p>#{o}</p>
-
-				</ui:repeat>
-
+				</h:dataTable>
+				
 			</div>
 			<div class="keys">
 				<p></p>
@@ -67,7 +87,7 @@
 					actionListener="#{calculator.key}" />
 				<h:commandButton id="clearEntry" value="CE" class="buttonfunc"
 					actionListener="#{calculator.keyClearEntry}" />
-				
+
 				<p></p>
 				<h:commandButton id="dot" value="." class="buttonopr"
 					actionListener="#{calculator.keyDot}" />
@@ -80,9 +100,9 @@
 				<p></p>
 				<h:commandButton id="DEL" value="DEL" class="buttonequals"
 					actionListener="#{calculator.keyDelete}" />
-					<h:commandButton id="equals" value="=" class="buttonequals"
+				<h:commandButton id="equals" value="=" class="buttonequals"
 					actionListener="#{calculator.keyEquals}" />
-				
+
 			</div>
 			<p></p>
 
