@@ -49,11 +49,11 @@ public class Calculator implements Serializable {
 		memory = "";
 	}
 
-	public void keyZero(ActionEvent event) {
-
-		ecra = validator.validaZero(getEcra(), event.getComponent().getId(),
-				getResult());
-	}
+//	public void keyZero(ActionEvent event) {
+//
+//		ecra = validator.validaZero(getEcra(), event.getComponent().getId(),
+//				getResult());
+//	}
 
 	public void keyDot(ActionEvent event) {
 

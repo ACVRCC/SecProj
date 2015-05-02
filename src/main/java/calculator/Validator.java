@@ -13,19 +13,15 @@ public class Validator implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public String validaZero(String expression, String id, String string) {
-
-		expression += "0";
-
-		return expression;
-	}
 
 	public String validaNumber(String expression, String number, String string) {
 
 		String add = "";
 
 		switch (number) {
-
+		case "num0":
+			add = "0";
+			break;
 		case "num1":
 			add = "1";
 			break;
@@ -76,7 +72,8 @@ public class Validator implements Serializable {
 		return expression;
 	}
 
-	public String validaOperator(String expression, String operator,String string) {
+	public String validaOperator(String expression, String operator,
+			String string) {
 
 		String add = "";
 
@@ -95,16 +92,19 @@ public class Validator implements Serializable {
 			add = "/";
 			break;
 
-
 		}
 
 		if (expression.equals(""))
-			expression= string + add;
+			expression = string + add;
 
-		else if (lastChar(expression).equals("+")||lastChar(expression).equals("-")||lastChar(expression).equals("*")||lastChar(expression).equals("/")) 
+		else if (lastChar(expression).equals("+")
+				|| lastChar(expression).equals("-")
+				|| lastChar(expression).equals("*")
+				|| lastChar(expression).equals("/"))
 			expression = expression.substring(0, expression.length() - 1) + add;
 
-		else expression+=add;
+		else
+			expression += add;
 
 		return expression;
 	}
@@ -123,10 +123,10 @@ public class Validator implements Serializable {
 			add = "sin";
 			break;
 		case "cos":
-			add="cos";
+			add = "cos";
 			break;
 		case "tan":
-			add= "tan";
+			add = "tan";
 			break;
 		case "invSin":
 			add = "asin";
@@ -141,7 +141,7 @@ public class Validator implements Serializable {
 			add = "^2";
 			break;
 		case "absolute":
-			add = "abs";
+			add = "abs(";
 			break;
 		case "exp":
 			add = "exp";
@@ -159,22 +159,22 @@ public class Validator implements Serializable {
 			add = "cosd";
 			break;
 		case "sind":
-			add ="sind";
+			add = "sind";
 			break;
 		case "tand":
-			add="tand";
+			add = "tand";
 			break;
 		case "acosd":
 			add = "acosd";
 			break;
 		case "asind":
-			add ="asind";
+			add = "asind";
 			break;
 		case "atand":
-			add="atand";
+			add = "atand";
 			break;
 		case "factorial":
-			add="!";
+			add = "!";
 			break;
 
 		}
@@ -186,7 +186,6 @@ public class Validator implements Serializable {
 
 		return expression;
 	}
-
 
 	public String validaDot(String expression, String dot, String string) {
 
