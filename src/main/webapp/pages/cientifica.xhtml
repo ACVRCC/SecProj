@@ -3,7 +3,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core">
 
 
 
@@ -27,11 +28,31 @@
 			</div>
 			<div class="history">
 
-				<ui:repeat value="#{historic.results}" var="o">
+				<h:dataTable id="histTable" value="#{historic.items}" var="var" 
+				styleClass="hist-table"
+    			headerClass="hist-table-header"
+    			rowClasses="hist-table-odd-row,hist-table-even-row" 
+    		 cellpadding="8">
+			<f:facet name="header">
+					Histórico
+				</f:facet>
+				<p></p>
+				
+				<h:column>
+				<f:facet name="header">Expressão</f:facet>
+					<h:commandLink action="#{calculator.insertEcraHistoric(var,'ecraHistoric')}" value="#{var.ecraHistoric}"  />
+				</h:column>
+			
+				<h:column>
+				<f:facet name="header">Resultado</f:facet>
+					<h:commandLink action="#{calculator.insertResultHistoric(var,'resultHistoric')}" value="#{var.resultHistoric}" />
+				</h:column>
+			
+				
+		
 
-					<p>#{o}</p>
-
-				</ui:repeat>
+				</h:dataTable>
+				
 			</div>
 
 			<div class="keys">

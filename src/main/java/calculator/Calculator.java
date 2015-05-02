@@ -31,8 +31,8 @@ public class Calculator implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String ecra;
-	private double result;
-	private double memory;
+	private String result;
+	private String memory;
 	@Inject
 	Validator validator;
 	@Inject
@@ -43,8 +43,8 @@ public class Calculator implements Serializable {
 
 	public Calculator() {
 		ecra="";
-		result=0;
-		memory=0;
+		result="";
+		memory="";
 	
 
 	}
@@ -72,14 +72,16 @@ public class Calculator implements Serializable {
 	}
 
 
-	public double expressionBuilder(String expression ) throws Exception {
+	public String expressionBuilder(String expression ) throws Exception {
 
+		
 		Expression e = new ExpressionBuilder(expression)
 		.variables("pi","e")
 		.build()
 		.setVariable("e",Math.E)
 		.setVariable("pi",Math.PI);
-		result = e.evaluate();
+		result= Double.toString(e.evaluate());
+		
 
 		return result;
 	}
@@ -90,12 +92,12 @@ public class Calculator implements Serializable {
 					
 			try {
 				setResult(expressionBuilder(getEcra()));
-				historic.addItems(getEcra(), Double.toString(getResult()));
+				historic.addItems(getEcra(), getResult());
 				ecra="";
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				ecra = "erro!";
-				result=0;
+				result="0";
 			}
 			
 
@@ -106,7 +108,7 @@ public class Calculator implements Serializable {
 
 		if(event.getComponent().getId().equals("clear")){
 
-			setResult(0);
+			setResult("0");
 			setEcra("");
 
 		}
@@ -143,7 +145,7 @@ public class Calculator implements Serializable {
 	public void keyMemoCl(ActionEvent event){
 
 		if(event.getComponent().getId().equals("memoCl"))
-			setMemory(0);
+			setMemory("0");
 
 	}
 
@@ -164,8 +166,8 @@ public class Calculator implements Serializable {
 	
 	public void insertResultHistoric(ItemHistoric item, String var){
 		
-		if (var.equals("ResultHistoric")) 
-			this.result= Double.parseDouble(item.getResultHistoric());
+		if (var.equals("resultHistoric")) 
+			this.result= item.getResultHistoric();
 		
 		
 		}
@@ -179,19 +181,19 @@ public class Calculator implements Serializable {
 		this.ecra = ecra;
 	}
 
-	public double getResult() {
+	public String getResult() {
 		return result;
 	}
 
-	public void setResult(double result) {
+	public void setResult(String result) {
 		this.result = result;
 	}
 
-	public double getMemory() {
+	public String getMemory() {
 		return memory;
 	}
 
-	public void setMemory(double memory) {
+	public void setMemory(String memory) {
 		this.memory = memory;
 	}
 

@@ -12,14 +12,14 @@ public class Validator implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public String validaZero(String expression, String id, Double result) {
+	public String validaZero(String expression, String id, String string) {
 
 		expression += "0";
 
 		return expression;
 	}
 
-	public String validaNumber(String expression, String number, Double result) {
+	public String validaNumber(String expression, String number, String string) {
 
 		String add = "";
 
@@ -75,7 +75,7 @@ public class Validator implements Serializable {
 	}
 
 	public String validaOperator(String expression, String operator,
-			Double result) {
+			String string) {
 
 		String add = "";
 
@@ -136,7 +136,7 @@ public class Validator implements Serializable {
 		}
 
 		if (expression.equals(""))
-			expression = Double.toString(result) + add;
+			expression = string + add;
 		
 		 else if (isLastCharNumeric(expression)) 
 			 expression += add;
@@ -151,7 +151,7 @@ public class Validator implements Serializable {
 	}
 
 
-	public String validaDot(String expression, String dot, Double result) {
+	public String validaDot(String expression, String dot, String string) {
 
 		if (dot.equals("dot")) {
 			if (!lastChar(expression).equals("."))
@@ -162,7 +162,7 @@ public class Validator implements Serializable {
 
 	}
 	
-	public String validaDelete(String expression, String str, Double result) {
+	public String validaDelete(String expression, String str, String string) {
 
 		if (str.equals("DEL")) {
 			if (expression.length()>0)
