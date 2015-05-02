@@ -12,11 +12,7 @@
 
 
 	<ui:define name="content">
-
-
 		<h:form>
-
-
 			<div class="display">
 				<div class="displaytop">
 					<h:outputText value="#{calculator.ecra}" />
@@ -32,9 +28,7 @@
     			headerClass="hist-table-header"
     			rowClasses="hist-table-odd-row,hist-table-even-row" 
     		 cellpadding="8">
-    		 <f:facet name="header">
-					Histórico
-				</f:facet>
+    		 
 					<p></p>
 
 					<h:column>
@@ -52,7 +46,6 @@
 					</h:column>
 
 				</h:dataTable>
-
 			</div>
 
 			<div class="keys">
@@ -111,7 +104,6 @@
 
 			</div>
 
-
 			<div class="keysscience">
 				<p></p>
 				<h:commandButton id="openParent" value="(" class="buttonopr"
@@ -148,7 +140,7 @@
 
 			<div class="keysscience">
 				<p></p>
-				<div class="p1">Radian Trigonometric</div>
+				<div class="headTrig">Radian Trigonometric</div>
 				<p></p>
 				<h:commandButton id="sin" value="sin" class="buttonfunc"
 					actionListener="#{calculator.keyFunction}" />
@@ -164,7 +156,7 @@
 				<h:commandButton id="invTan" value="inv tan" class="buttonfunc"
 					actionListener="#{calculator.keyFunction}" />
 				<p></p>
-				<div class="p1">Degree Trigonometric</div>
+				<div class="headTrig">Degree Trigonometric</div>
 				<p></p>
 				<h:commandButton id="sind" value="sin" class="buttonfunc"
 					actionListener="#{calculator.keyFunction}" />
@@ -180,8 +172,6 @@
 				<h:commandButton id="atand" value="inv tan" class="buttonfunc"
 					actionListener="#{calculator.keyFunction}" />
 			</div>
-
-
 
 		</h:form>
 	</ui:define>

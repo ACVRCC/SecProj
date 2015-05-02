@@ -5,6 +5,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 
 /*Trabalho executado por Alberto Centeno e Sérgio Moutinho*/
+
 @SessionScoped
 public class Validator implements Serializable {
 
@@ -14,7 +15,7 @@ public class Validator implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 
-	public String validaNumber(String expression, String number, String string) {
+	public String validaNumber(String expression, String number, String result) {
 
 		String add = "";
 
@@ -61,7 +62,6 @@ public class Validator implements Serializable {
 		case "closeParent":
 			add = ")";
 			break;
-
 		}
 
 		if (expression.equals("0"))
@@ -73,7 +73,7 @@ public class Validator implements Serializable {
 	}
 
 	public String validaOperator(String expression, String operator,
-			String string) {
+			String result) {
 
 		String add = "";
 
@@ -95,7 +95,7 @@ public class Validator implements Serializable {
 		}
 
 		if (expression.equals(""))
-			expression = string + add;
+			expression = result + add;
 
 		else if (lastChar(expression).equals("+")
 				|| lastChar(expression).equals("-")
@@ -187,26 +187,22 @@ public class Validator implements Serializable {
 		return expression;
 	}
 
-	public String validaDot(String expression, String dot, String string) {
+	public String validaDot(String expression, String dot, String result) {
 
 		if (dot.equals("dot")) {
 			if (!lastChar(expression).equals("."))
 				expression += ".";
 		}
-
 		return expression;
-
 	}
 
-	public String validaDelete(String expression, String str, String string) {
+	public String validaDelete(String expression, String str, String result) {
 
 		if (str.equals("DEL")) {
 			if (expression.length() > 0)
 				expression = expression.substring(0, expression.length() - 1);
 		}
-
 		return expression;
-
 	}
 
 	public String lastChar(String str) {

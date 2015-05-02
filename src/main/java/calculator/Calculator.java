@@ -34,7 +34,7 @@ public class Calculator implements Serializable {
 	private String ecra;
 	private String result;
 	private String memory;
-	
+
 
 	@Inject
 	Validator validator;
@@ -49,12 +49,6 @@ public class Calculator implements Serializable {
 		memory = "";
 	}
 
-//	public void keyZero(ActionEvent event) {
-//
-//		ecra = validator.validaZero(getEcra(), event.getComponent().getId(),
-//				getResult());
-//	}
-
 	public void keyDot(ActionEvent event) {
 
 		ecra = validator.validaDot(getEcra(), event.getComponent().getId(),
@@ -65,44 +59,50 @@ public class Calculator implements Serializable {
 
 		ecra = validator.validaNumber(getEcra(), event.getComponent().getId(),
 				getResult());
-
 	}
+	
 	Function cosd = new Function("cosd", 1) {
 		@Override
 		public double apply(double... args) {
 			return Math.cos(Math.toRadians(args[0]));
 		}
 	};
+	
 	Function sind = new Function("sind", 1) {
-		   @Override
-		   public double apply(double... args) {
-		    return Math.sin(Math.toRadians(args[0]));
-		   }
-		};
-		Function tand = new Function("tand", 1) {
-		   @Override
-		   public double apply(double... args) {
-		    return Math.tan(Math.toRadians(args[0]));
-		   }
-		};
-		Function acosd = new Function("acosd", 1) {
-			@Override
-			public double apply(double... args) {
-				return Math.acos(Math.toRadians(args[0]));
-			}
-		};
-		Function asind = new Function("asind", 1) {
-			@Override
-			public double apply(double... args) {
-				return Math.asin(Math.toRadians(args[0]));
-			}
-		};
-		Function atand = new Function("atand", 1) {
-			@Override
-			public double apply(double... args) {
-				return Math.atan(Math.toRadians(args[0]));
-			}
-		};
+		@Override
+		public double apply(double... args) {
+			return Math.sin(Math.toRadians(args[0]));
+		}
+	};
+	
+	Function tand = new Function("tand", 1) {
+		@Override
+		public double apply(double... args) {
+			return Math.tan(Math.toRadians(args[0]));
+		}
+	};
+	
+	Function acosd = new Function("acosd", 1) {
+		@Override
+		public double apply(double... args) {
+			return 180/Math.PI*Math.acos(args[0]);
+		}
+	};
+	
+	Function asind = new Function("asind", 1) {
+		@Override
+		public double apply(double... args) {
+			return 180/Math.PI*Math.asin(args[0]);
+		}
+	};
+	
+	Function atand = new Function("atand", 1) {
+		@Override
+		public double apply(double... args) {
+			return 180/Math.PI*Math.atan(args[0]);
+		}
+	};
+	
 	Operator factorial = new Operator("!", 1, true,
 			Operator.PRECEDENCE_POWER + 1) {
 		@Override
@@ -129,29 +129,29 @@ public class Calculator implements Serializable {
 				event.getComponent().getId(), getResult());
 		statistic.countOperator(event.getComponent().getId());
 	}
-	
+
 	public void keyFunction(ActionEvent event) {
 
 		ecra = validator.validaFunction(getEcra(),
 				event.getComponent().getId(), getResult());
 		statistic.countOperator(event.getComponent().getId());
 	}
-	
+
 	public String expressionBuilder(String expression) throws Exception {
 
 		Expression e = new ExpressionBuilder(expression)
-				.operator(factorial)
-				.function(cosd)
-				.function(sind)
-				.function(tand)
-				.function(acosd)
-				.function(asind)
-				.function(atand)
-				.variables("pi", "e")
-				.build()
-				.setVariable("e", Math.E)
-				.setVariable("pi", Math.PI);
-				result = Double.toString(e.evaluate());
+		.operator(factorial)
+		.function(cosd)
+		.function(sind)
+		.function(tand)
+		.function(acosd)
+		.function(asind)
+		.function(atand)
+		.variables("pi", "e")
+		.build()
+		.setVariable("e", Math.E)
+		.setVariable("pi", Math.PI);
+		result = Double.toString(e.evaluate());
 
 		return result;
 	}
@@ -159,7 +159,7 @@ public class Calculator implements Serializable {
 	public void keyEquals(ActionEvent event){
 
 		if(event.getComponent().getId().equals("equals")){
-					
+
 			try {
 				setResult(expressionBuilder(getEcra()));
 				historic.addItems(getEcra(), getResult());
@@ -169,11 +169,8 @@ public class Calculator implements Serializable {
 				ecra = "expressão não válida!";
 				result="0";
 			}
-			
-
 		}
 	}
-
 
 	public void keyClear(ActionEvent event) {
 
@@ -181,7 +178,6 @@ public class Calculator implements Serializable {
 
 			setResult("0");
 			setEcra("");
-
 		}
 	}
 
@@ -189,7 +185,6 @@ public class Calculator implements Serializable {
 
 		if (event.getComponent().getId().equals("clearEntry"))
 			setEcra("");
-
 	}
 
 	public void keyMemo(ActionEvent event) {
@@ -197,7 +192,6 @@ public class Calculator implements Serializable {
 		if (event.getComponent().getId().equals("memo")) {
 			memory = result;
 		}
-
 	}
 
 	public void keyMemoMr(ActionEvent event) {
@@ -209,34 +203,28 @@ public class Calculator implements Serializable {
 				// TODO Auto-generated catch block
 				ecra = "erro!";
 			}
-
 	}
 
 	public void keyMemoCl(ActionEvent event) {
 
 		if (event.getComponent().getId().equals("memoCl"))
 			setMemory("");
-
 	}
 
 	public void keyDelete(ActionEvent event) {
 
 		ecra = validator.validaDelete(getEcra(), event.getComponent().getId(),
 				getResult());
-
 	}
-	
 
-public void insertHistoric(ItemHistoric item, String var){
-		
+	public void insertHistoric(ItemHistoric item, String var){
+
 		if (var.equals("ecraHistoric")) 
 			this.ecra= item.getEcraHistoric();
 		if (var.equals("resultHistoric")) 
-		this.result= item.getResultHistoric();
-	
-	
+			this.result= item.getResultHistoric();
 	}
-	
+
 	public String getEcra() {
 		return ecra;
 	}

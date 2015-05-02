@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 /*Trabalho executado por Alberto Centeno e Sérgio Moutinho*/
+
 @Named
 @ApplicationScoped
 public class Statistic implements Serializable {
@@ -80,10 +81,7 @@ public class Statistic implements Serializable {
 			countATan++;break;
 		case "factorial":
 			countFactorial++;break;
-	
-
 		}
-
 	}
 
 	public int getCountPlus() {
