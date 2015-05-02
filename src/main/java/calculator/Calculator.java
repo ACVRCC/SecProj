@@ -11,6 +11,7 @@
 package calculator;
 
 import java.io.Serializable;
+
 import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
@@ -152,18 +153,19 @@ public class Calculator implements Serializable {
 
 	}
 	
-	public String insertEcraHistoric(){
+	public void insertEcraHistoric(ItemHistoric item, String var){
 		
-		
-	return	ecra= "24";
+		if (var.equals("ecraHistoric")) 
+			this.ecra= item.getEcraHistoric();
+
 	
 	
 	}
 	
-	public double insertResultHistoric(){
+	public void insertResultHistoric(ItemHistoric item, String var){
 		
-		
-		return	result=24;
+		if (var.equals("ResultHistoric")) 
+			this.result= Double.parseDouble(item.getResultHistoric());
 		
 		
 		}

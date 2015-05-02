@@ -28,7 +28,8 @@
 				<h:dataTable id="histTable" value="#{historic.items}" var="var" 
 				styleClass="hist-table"
     			headerClass="hist-table-header"
-    			rowClasses="hist-table-odd-row,hist-table-even-row" >
+    			rowClasses="hist-table-odd-row,hist-table-even-row" 
+    		 cellpadding="8">
 			<f:facet name="header">
 					Histórico
 				</f:facet>
@@ -36,12 +37,12 @@
 				
 				<h:column>
 				<f:facet name="header">Expressão</f:facet>
-					<h:commandLink action="calculator.insertHistoric" value="#{var.ecraHistoric}"  />
+					<h:commandLink action="#{calculator.insertEcraHistoric(var,'ecraHistoric')}" value="#{var.ecraHistoric}"  />
 				</h:column>
 			
 				<h:column>
 				<f:facet name="header">Resultado</f:facet>
-					<h:commandLink action="calculator.insertHistoric" value="#{var.resultHistoric}" />
+					<h:commandLink action="#{calculator.insertResultHistoric(var,'resultHistoric')}" value="#{var.resultHistoric}" />
 				</h:column>
 			
 				
