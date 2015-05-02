@@ -65,27 +65,7 @@ public class Validator implements Serializable {
 		case "closeParent":
 			add = ")";
 			break;
-		case "cosd":
-			add = "cosd";
-			break;
-		case "sind":
-			add ="sind";
-			break;
-		case "tand":
-			add="atand";
-			break;
-		case "acosd":
-			add = "acosd";
-			break;
-		case "asind":
-			add ="asind";
-			break;
-		case "atand":
-			add="aatand";
-			break;
-		case "factorial":
-			add="!";
-			break;
+
 		}
 
 		if (expression.equals("0"))
@@ -96,8 +76,7 @@ public class Validator implements Serializable {
 		return expression;
 	}
 
-	public String validaOperator(String expression, String operator,
-			String string) {
+	public String validaOperator(String expression, String operator,String string) {
 
 		String add = "";
 
@@ -116,20 +95,16 @@ public class Validator implements Serializable {
 			add = "/";
 			break;
 
-		
+
 		}
 
 		if (expression.equals(""))
-			expression = string + add;
+			expression= string + add;
 
-		else
-			if (isLastCharNumeric(expression)) 
-			expression += add;
+		else if (lastChar(expression).equals("+")||lastChar(expression).equals("-")||lastChar(expression).equals("*")||lastChar(expression).equals("/")) 
+			expression = expression.substring(0, expression.length() - 1) + add;
 
-		
-		  else expression = expression.substring(0, expression.length() - 1) +
-		  add;
-		 
+		else expression+=add;
 
 		return expression;
 	}
@@ -138,49 +113,70 @@ public class Validator implements Serializable {
 			String result) {
 
 		String add = "";
-		
+
 		switch (operator) {
-	
-			case "sqrt":
-				add = "sqrt";
-				break;
-			case "sin":
-				add = "sin";
-				break;
-			case "cos":
-				add="cos";
-				break;
-			case "tan":
-				add= "tan";
-				break;
-			case "invSin":
-				add = "asin";
-				break;
-			case "invCos":
-				add = "acos";
-				break;
-			case "invTan":
-				add = "atan";
-				break;
-			case "square":
-				add = "sqr";
-				break;
-			case "absolute":
-				add = "abs";
-				break;
-			case "exp":
-				add = "exp";
-				break;
-			case "log":
-				add = "log";
-				break;
-			case "cubicRoot":
-				add = "cbrt";
-				break;
-			case "pow":
-				add = "^";
-				break;
-		
+
+		case "sqrt":
+			add = "sqrt";
+			break;
+		case "sin":
+			add = "sin";
+			break;
+		case "cos":
+			add="cos";
+			break;
+		case "tan":
+			add= "tan";
+			break;
+		case "invSin":
+			add = "asin";
+			break;
+		case "invCos":
+			add = "acos";
+			break;
+		case "invTan":
+			add = "atan";
+			break;
+		case "square":
+			add = "^2";
+			break;
+		case "absolute":
+			add = "abs";
+			break;
+		case "exp":
+			add = "exp";
+			break;
+		case "log":
+			add = "log";
+			break;
+		case "cubicRoot":
+			add = "cbrt";
+			break;
+		case "pow":
+			add = "^";
+			break;
+		case "cosd":
+			add = "cosd";
+			break;
+		case "sind":
+			add ="sind";
+			break;
+		case "tand":
+			add="tand";
+			break;
+		case "acosd":
+			add = "acosd";
+			break;
+		case "asind":
+			add ="asind";
+			break;
+		case "atand":
+			add="atand";
+			break;
+		case "factorial":
+			add="!";
+			break;
+
 		}
 
 		if (expression.equals("0"))
@@ -190,8 +186,8 @@ public class Validator implements Serializable {
 
 		return expression;
 	}
-	
-	
+
+
 	public String validaDot(String expression, String dot, String string) {
 
 		if (dot.equals("dot")) {

@@ -4,7 +4,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 
@@ -27,29 +27,29 @@
 
 			</div>
 			<div class="history">
-
 				<h:dataTable id="histTable" value="#{historic.items}" var="var" 
 				styleClass="hist-table"
     			headerClass="hist-table-header"
     			rowClasses="hist-table-odd-row,hist-table-even-row" 
     		 cellpadding="8">
-			<f:facet name="header">
+    		 <f:facet name="header">
 					Histórico
 				</f:facet>
-				<p></p>
-				
-				<h:column>
-				<f:facet name="header">Expressão</f:facet>
-					<h:commandLink action="#{calculator.insertEcraHistoric(var,'ecraHistoric')}" value="#{var.ecraHistoric}"  />
-				</h:column>
-			
-				<h:column>
-				<f:facet name="header">Resultado</f:facet>
-					<h:commandLink action="#{calculator.insertResultHistoric(var,'resultHistoric')}" value="#{var.resultHistoric}" />
-				</h:column>
-			
-				
-		
+					<p></p>
+
+					<h:column>
+						<f:facet name="header">Expressão</f:facet>
+						<h:commandLink
+							action="#{calculator.insertEcraHistoric(var,'ecraHistoric')}"
+							value="#{var.ecraHistoric}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Resultado</f:facet>
+						<h:commandLink
+							action="#{calculator.insertResultHistoric(var,'resultHistoric')}"
+							value="#{var.resultHistoric}" />
+					</h:column>
 
 				</h:dataTable>
 
@@ -119,27 +119,27 @@
 				<h:commandButton id="closeParent" value=")" class="buttonopr"
 					actionListener="#{calculator.key}" />
 				<p></p>
-				<h:commandButton id="e" value="e" class="buttonpow"
+				<h:commandButton id="e" value="e" class="buttonopr"
 					actionListener="#{calculator.key}" />
-				<h:commandButton id="pi" value="&#960;" class="buttonpow"
+				<h:commandButton id="pi" value="&#960;" class="buttonopr"
 					actionListener="#{calculator.key}" />
 				<p></p>
-				<h:commandButton id="exp" value="e&#739;" class="buttonpow"
+				<h:commandButton id="exp" value="e&#739;" class="buttonopr"
 					actionListener="#{calculator.keyFunction}" />
-				<h:commandButton id="log" value="log" class="buttonpow"
-					actionListener="#{calculator.keyFunction}" />
-				<p></p>
-				<h:commandButton id="sqrt" value="&radic;" class="buttonpow"
-					actionListener="#{calculator.keyFunction}" />
-				<h:commandButton id="cubicRoot" value="&#8731;" class="buttonpow"
+				<h:commandButton id="log" value="log" class="buttonopr"
 					actionListener="#{calculator.keyFunction}" />
 				<p></p>
-				<h:commandButton id="square" value="x&#178;" class="buttonpow"
+				<h:commandButton id="sqrt" value="&radic;" class="buttonopr"
 					actionListener="#{calculator.keyFunction}" />
-				<h:commandButton id="pow" value="x&#696;" class="buttonpow"
+				<h:commandButton id="cubicRoot" value="&#8731;" class="buttonopr"
 					actionListener="#{calculator.keyFunction}" />
 				<p></p>
-				<h:commandButton id="absolute" value="abs" class="buttonpow"
+				<h:commandButton id="square" value="x&#178;" class="buttonopr"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="pow" value="x&#696;" class="buttonopr"
+					actionListener="#{calculator.keyFunction}" />
+				<p></p>
+				<h:commandButton id="absolute" value="abs" class="buttonopr"
 					actionListener="#{calculator.keyFunction}" />
 				<h:commandButton id="factorial" value="n!" class="buttonopr"
 					actionListener="#{calculator.keyFunction}" />
@@ -150,35 +150,35 @@
 				<p></p>
 				<div class="p1">Radian Trigonometric</div>
 				<p></p>
-				<h:commandButton id="sin" value="sin" class="buttontrig"
-					actionListener="#{calculator.keyOperator}" />
-				<h:commandButton id="cos" value="cos" class="buttontrig"
-					actionListener="#{calculator.keyOperator}" />
-				<h:commandButton id="tan" value="tan" class="buttontrig"
-					actionListener="#{calculator.keyOperator}" />
+				<h:commandButton id="sin" value="sin" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="cos" value="cos" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="tan" value="tan" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
 				<p></p>
-				<h:commandButton id="invSin" value="asin" class="buttontrig"
-					actionListener="#{calculator.keyOperator}" />
-				<h:commandButton id="invCos" value="acos" class="buttontrig"
-					actionListener="#{calculator.keyOperator}" />
-				<h:commandButton id="invTan" value="atan" class="buttontrig"
-					actionListener="#{calculator.keyOperator}" />
+				<h:commandButton id="invSin" value="inv sin" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="invCos" value="inv cos" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="invTan" value="inv tan" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
 				<p></p>
 				<div class="p1">Degree Trigonometric</div>
 				<p></p>
-				<h:commandButton id="cosd" value="cosd" class="buttonopr"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="degreesin" value="sind" class="buttonopr"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="degreestan" value="tand" class="buttonopr"
-					actionListener="#{calculator.key}" />
+				<h:commandButton id="sind" value="sin" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="cosd" value="cos" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="tand" value="tan" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
 				<p></p>
-				<h:commandButton id="inverseacosd" value="acosd" class="buttonopr"
-					actionListener="#{calculator.key}" />
-				<h:commandButton id="inversedegreesin" value="asind"
-					class="buttonopr" actionListener="#{calculator.key}" />
-				<h:commandButton id="inversedegreestan" value="atand"
-					class="buttonopr" actionListener="#{calculator.key}" />
+				<h:commandButton id="asind" value="inv sin" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="acosd" value="inv cos" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
+				<h:commandButton id="atand" value="inv tan" class="buttonfunc"
+					actionListener="#{calculator.keyFunction}" />
 			</div>
 
 

@@ -26,6 +26,7 @@ public class Statistic implements Serializable {
 	private int countAbs = 0;
 	private int countExp = 0;
 	private int countLog = 0;
+	private int countFactorial=0;
 
 	public void countOperator(String operator) {
 
@@ -65,7 +66,20 @@ public class Statistic implements Serializable {
 			countExp++;break;
 		case "log":
 			countLog++;break;
-
+		case "sind":
+			countSin++;break;
+		case "cosd":
+			countCos++;break;
+		case "tand":
+			countTan++;break;
+		case "asind":
+			countASin++;break;
+		case "acosd":
+			countACos++;break;
+		case "atand":
+			countATan++;break;
+		case "factorial":
+			countFactorial++;break;
 	
 
 		}
@@ -205,6 +219,13 @@ public class Statistic implements Serializable {
 	}
 
 	public void setCountLog(int countLog) {
-		this.countAbs = countLog;
+		this.countLog = countLog;
+	}
+	public int getCountFactorial() {
+		return this.countFactorial;
+	}
+
+	public void setCountFactorial(int countFactorial) {
+		this.countFactorial = countFactorial;
 	}
 }

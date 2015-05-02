@@ -227,24 +227,16 @@ public class Calculator implements Serializable {
 	}
 	
 
-public void insertEcraHistoric(ItemHistoric item, String var){
+public void insertHistoric(ItemHistoric item, String var){
 		
 		if (var.equals("ecraHistoric")) 
 			this.ecra= item.getEcraHistoric();
-
+		if (var.equals("resultHistoric")) 
+		this.result= item.getResultHistoric();
 	
 	
 	}
 	
-	public void insertResultHistoric(ItemHistoric item, String var){
-		
-		if (var.equals("resultHistoric")) 
-			this.result= item.getResultHistoric();
-		
-		
-		}
-
-
 	public String getEcra() {
 		return ecra;
 	}

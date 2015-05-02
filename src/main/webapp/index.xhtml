@@ -36,16 +36,14 @@
 				
 				<h:column>
 				<f:facet name="header">Expressão</f:facet>
-					<h:commandLink action="#{calculator.insertEcraHistoric(var,'ecraHistoric')}" value="#{var.ecraHistoric}"  />
+					<h:commandLink action="#{calculator.insertHistoric(var,'ecraHistoric')}" value="#{var.ecraHistoric}"  />
 				</h:column>
 			
 				<h:column>
 				<f:facet name="header">Resultado</f:facet>
-					<h:commandLink action="#{calculator.insertResultHistoric(var,'resultHistoric')}" value="#{var.resultHistoric}" />
+					<h:commandLink action="#{calculator.insertHistoric(var,'resultHistoric')}" value="#{var.resultHistoric}" />
 				</h:column>
 			
-				
-		
 
 				</h:dataTable>
 				</div>
