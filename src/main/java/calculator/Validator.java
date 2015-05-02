@@ -12,7 +12,6 @@ public class Validator implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String unit;
 
 	public String validaZero(String expression, String id, String string) {
 
@@ -117,46 +116,7 @@ public class Validator implements Serializable {
 			add = "/";
 			break;
 
-		case "sqrt":
-			add = "sqrt";
-			break;
-		case "sin":
-			add = "sin";
-			break;
-		case "cos":
-			add="cos";
-			break;
-		case "tan":
-			add= "tan";
-			break;
-		case "invSin":
-			add = "asin";
-			break;
-		case "invCos":
-			add = "acos";
-			break;
-		case "invTan":
-			add = "atan";
-			break;
-		case "square":
-			add = "sqr";
-			break;
-		case "absolute":
-			add = "abs";
-			break;
-		case "exp":
-			add = "exp";
-			break;
-		case "log":
-			add = "log";
-			break;
-		case "cubicRoot":
-			add = "cbrt";
-			break;
-		case "pow":
-			add = "^";
-			break;
-	
+		
 		}
 
 		if (expression.equals(""))
@@ -174,6 +134,64 @@ public class Validator implements Serializable {
 		return expression;
 	}
 
+	public String validaFunction(String expression, String operator,
+			String result) {
+
+		String add = "";
+		
+		switch (operator) {
+	
+			case "sqrt":
+				add = "sqrt";
+				break;
+			case "sin":
+				add = "sin";
+				break;
+			case "cos":
+				add="cos";
+				break;
+			case "tan":
+				add= "tan";
+				break;
+			case "invSin":
+				add = "asin";
+				break;
+			case "invCos":
+				add = "acos";
+				break;
+			case "invTan":
+				add = "atan";
+				break;
+			case "square":
+				add = "sqr";
+				break;
+			case "absolute":
+				add = "abs";
+				break;
+			case "exp":
+				add = "exp";
+				break;
+			case "log":
+				add = "log";
+				break;
+			case "cubicRoot":
+				add = "cbrt";
+				break;
+			case "pow":
+				add = "^";
+				break;
+		
+		}
+
+		if (expression.equals("0"))
+			expression = add;
+		else
+			expression += add;
+
+		return expression;
+	}
+	
+	
 	public String validaDot(String expression, String dot, String string) {
 
 		if (dot.equals("dot")) {

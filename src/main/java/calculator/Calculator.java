@@ -130,6 +130,12 @@ public class Calculator implements Serializable {
 		statistic.countOperator(event.getComponent().getId());
 	}
 	
+	public void keyFunction(ActionEvent event) {
+
+		ecra = validator.validaFunction(getEcra(),
+				event.getComponent().getId(), getResult());
+		statistic.countOperator(event.getComponent().getId());
+	}
 	
 	public String expressionBuilder(String expression) throws Exception {
 
@@ -160,7 +166,7 @@ public class Calculator implements Serializable {
 				ecra="";
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				ecra = "erro!";
+				ecra = "expressão não válida!";
 				result="0";
 			}
 			
